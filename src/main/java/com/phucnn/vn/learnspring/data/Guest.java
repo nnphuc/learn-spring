@@ -3,6 +3,7 @@ package com.phucnn.vn.learnspring.data;
 import javax.persistence.*;
 
 @Entity
+@Table(name = "GUEST")
 public class Guest {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)

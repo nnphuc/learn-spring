@@ -1,9 +1,10 @@
 package com.phucnn.vn.learnspring.data;
 
 import javax.persistence.*;
-import java.util.Date;
+import java.sql.Date;
 
 @Entity
+@Table(name = "RESERVATION")
 public class Reservation {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -11,13 +12,13 @@ public class Reservation {
     private long id;
 
     @Column(name = "ROOM_ID")
-    private String roomId;
+    private long roomId;
 
     @Column(name = "GUEST_ID")
-    private String guestId;;
+    private long guestId;
 
     @Column(name = "RES_DATE")
-    private Date date;
+    private Date reservationDate;
 
     @Override
     public String toString() {
@@ -25,7 +26,7 @@ public class Reservation {
                 "id=" + id +
                 ", roomId='" + roomId + '\'' +
                 ", guestId='" + guestId + '\'' +
-                ", date=" + date +
+                ", date=" + reservationDate +
                 '}';
     }
 
@@ -37,27 +38,27 @@ public class Reservation {
         this.id = id;
     }
 
-    public String getRoomId() {
+    public long getRoomId() {
         return roomId;
     }
 
-    public void setRoomId(String roomId) {
+    public void setRoomId(long roomId) {
         this.roomId = roomId;
     }
 
-    public String getGuestId() {
+    public long getGuestId() {
         return guestId;
     }
 
-    public void setGuestId(String guestId) {
+    public void setGuestId(long guestId) {
         this.guestId = guestId;
     }
 
-    public Date getDate() {
-        return date;
+    public Date getReservationDate() {
+        return reservationDate;
     }
 
-    public void setDate(Date date) {
-        this.date = date;
+    public void setReservationDate(Date date) {
+        this.reservationDate = date;
     }
 }
