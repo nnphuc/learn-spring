@@ -1,7 +1,6 @@
 package com.phucnn.vn.learnspring.business;
 
 import com.phucnn.vn.learnspring.data.*;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.*;
@@ -52,6 +51,14 @@ public class ReservationService {
             }
         });
         return roomReservations;
+    }
+
+    public List<Guest> getHotelGuests() {
+        Iterable<Guest> guests = guestRepository.findAll();
+        List<Guest> guestList = new ArrayList<>();
+        guests.forEach(guest -> guestList.add(guest));
+        guestList.sort((x, y) -> x.getFirstName().compareTo(y.getFirstName()));
+        return guestList;
     }
 }
 

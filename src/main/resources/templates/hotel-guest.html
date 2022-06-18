@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Hotel Guest</title>
+</head>
+<body>
+<table>
+    <tr th:each="guest: ${guests}">
+        <td th:text="${guest.firstName}">first Name</td>
+        <td th:text="${guest.lastName}">first Name</td>
+        <td th:text="${guest.emailAddress}">first Name</td>
+        <td th:text="${guest.phoneNumber}">first Name</td>
+    </tr>
+</table>
+</body>
+</html>
