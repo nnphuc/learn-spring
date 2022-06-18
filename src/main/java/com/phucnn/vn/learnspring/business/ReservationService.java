@@ -60,6 +60,21 @@ public class ReservationService {
         guestList.sort((x, y) -> x.getFirstName().compareTo(y.getFirstName()));
         return guestList;
     }
+
+    public List<Room> getHotelRooms() {
+        Iterable<Room> rooms = roomRepository.findAll();
+        List<Room> roomList = new ArrayList<Room>();
+        rooms.forEach(r -> roomList.add(r));
+        roomList.sort((x, y) -> x.getName().compareTo(y.getName()));
+        return roomList;
+    }
+
+    public void addGuest(Guest guest) {
+        if (guest == null) {
+            throw new RuntimeException("Guest cannot be null");
+        }
+        guestRepository.save(guest);
+    }
 }
 
 
